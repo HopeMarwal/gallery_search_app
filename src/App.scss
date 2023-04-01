@@ -1,0 +1,12 @@
+.App img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img-card {
+  transition: all 0.5s linear;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
