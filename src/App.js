@@ -20,7 +20,6 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-
 function App() {
   const [photos, setPhotos] = useState([])
   const [query, setQuery] = useState('nature')
@@ -34,6 +33,9 @@ function App() {
     fetchPhotos()
   }, [query])
 
+  const photosHeading = photos.length > 0 
+                        ? <span>Photos of <span className='query'>{query}</span></span>
+                        : <span>Sorry... There in no <span className='query'>{query}</span> photos</span>
 
   return (
     <Box className="App">
@@ -46,31 +48,28 @@ function App() {
           textAlign: 'center'
         }}
       >
-        <Typography variant='h5'>
+        <Typography variant='h3' pt={5} sx={{ color: '#fc5d5d'}}>
           Gallery
         </Typography>
-      </Box>
-      {/* Search */}
-      <SearchImage setQuery={setQuery} query={query} />
-      {/* Gallery res */}
-      { photos.length > 0 && 
-      <Grid 
-        container
-        spacing={1}
-      >
-        {
-          photos.map((item, index) => (
-            <Grid key={item.id} xs={ index % 3 == 0 ? 4 : 2}>
-              <Item className='img-card'>
-                <img src={item.src.medium} alt={item.alt} />
-              </Item>
-              
-            </Grid>
-            
-          ))
-        }
-      </Grid>
+     
+        {/* Search */}
+        <SearchImage setQuery={setQuery} query={query} />
+        
+        {/* Gallery res */}
+        <Typography mb={3} display='block'> {photosHeading} </Typography>
+        { photos.length > 0 && 
+        <Grid container spacing={1}>
+          {photos.map((item, index) => (
+              <Grid key={item.id} xs={ index % 3 === 0 ? 4 : 2}>
+                <Item className='img-card'>
+                  <img src={item.src.medium} alt={item.alt} />
+                </Item>
+              </Grid>
+            ))
+          }
+        </Grid>
       }
+      </Box>
     </Box>
   );
 }

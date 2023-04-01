@@ -1,12 +1,35 @@
-.App img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.App {
+  padding: 10px;
+  background-color: rgba(221, 175, 175, 0.329) ;
+  h3 {
+    font-family: 'Great Vibes', cursive;
+  }
+  .query {
+    text-transform: capitalize;
+    color: #fc5d5d;
+    font-weight: 600;
+  }
 }
 .img-card {
-  transition: all 0.5s linear;
+  transition:all 400ms linear !important;
   cursor: pointer;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   &:hover {
     transform: scale(1.1);
   }
+}
+
+input {
+  background-color: transparent;
+  padding: 10px;
+  width: 60%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #a5a5a5;
 }
