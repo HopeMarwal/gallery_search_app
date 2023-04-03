@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
+a {
+  color: inherit;
+  text-decoration: none;
+  
+}
 .App {
-  padding: 10px;
+  padding: 0 10px;
   background-color: rgba(221, 175, 175, 0.329) ;
   h3 {
     font-family: 'Great Vibes', cursive;
@@ -32,4 +37,25 @@ input {
   outline: none;
   border: none;
   border-bottom: 1px solid #a5a5a5;
+}
+
+.image-detail {
+  a {
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 14px;
+    color: #444444;
+  }
+}
+
+.image-box {
+  img {
+    max-width: 100%;
+  }
+}
+
+footer {
+  margin-top: 50px;
+  font-size: 14px;
+  color: #a5a5a5;
 }

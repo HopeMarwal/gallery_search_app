@@ -1,9 +1,13 @@
+//React
 import { useState } from 'react';
+//MUI
 import { Box } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
+//Context
+import { useGallery } from '../context/GalleryContext'
 
-export default function SearchImage({ setQuery }) {
-
+export default function SearchImage() {
+  const { setQuery } = useGallery()
   const [inputValue, setInputValue] = useState('')
 
   const handleKeyPress = (key) => {
